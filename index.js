@@ -1,5 +1,6 @@
 var extend          = require( 'util' )._extend;
 var getLux          = require( './lux' );
+var Q               = require( 'q' );
 
 // defaults to 10 minutes (600)
 var sensorInterval  = process.env.SENSOR_INTERVAL || 10*60;

@@ -1,14 +1,11 @@
-# FROM resin/rpi-nodejs
 FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 
+# must run or i2c module will fail to load
 RUN apt-get update
 
 # setup tsl2561
 RUN echo "i2c-bcm2708" | tee -a /etc/modules
 RUN echo "i2c-dev" | tee -a /etc/modules
-
-# resin-sync will always sync to /usr/src/app, so code needs to be here.
-WORKDIR /usr/src/app
 
 COPY package.json ./
 RUN JOBS=MAX npm install --unsafe-perm
