@@ -11,4 +11,4 @@ RUN JOBS=MAX npm install --unsafe-perm
 # copy current directory into WORKDIR
 COPY . ./
 
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
