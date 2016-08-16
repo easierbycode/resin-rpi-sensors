@@ -1,6 +1,8 @@
 # FROM resin/rpi-nodejs
 FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 
+RUN apt-get update
+
 # setup tsl2561
 RUN echo "i2c-bcm2708" | tee -a /etc/modules
 RUN echo "i2c-dev" | tee -a /etc/modules
