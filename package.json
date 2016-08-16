@@ -10,6 +10,7 @@
   "author": "Daniel Johnson <daniel@easierbycode.com>",
   "license": "ISC",
   "dependencies": {
+    "nan": "2.4.0",
     "q": "^1.4.1",
     "tsl2561": "easierbycode/tsl2561_node"
   }
