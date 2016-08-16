@@ -1,4 +1,5 @@
 var extend          = require( 'util' )._extend;
+var getHumidity     = require( './humidity' );
 var getLux          = require( './lux' );
 var Q               = require( 'q' );
 
@@ -10,6 +11,7 @@ var readSensors = () => {
   var reading = {};
 
   Q.all([
+    getHumidity(),
     getLux()
   ]).then( ( results ) => {
     results.forEach( ( result ) => extend( reading, result ) );
