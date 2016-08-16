@@ -4,6 +4,7 @@ FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 # setup tsl2561
 RUN echo "i2c-bcm2708" | tee -a /etc/modules
 RUN echo "i2c-dev" | tee -a /etc/modules
+RUN chmod o+rw /dev/i2c*
 
 COPY package.json ./
 RUN JOBS=MAX npm install --unsafe-perm
@@ -11,4 +12,4 @@ RUN JOBS=MAX npm install --unsafe-perm
 # copy current directory into WORKDIR
 COPY . ./
 
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
