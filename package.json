@@ -1,0 +1,16 @@
+{
+  "name": "vertafarm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "modprobe i2c-bcm2708 && modprobe i2c-dev && node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Johnson <daniel@easierbycode.com>",
+  "license": "ISC",
+  "dependencies": {
+    "q": "^1.4.1",
+    "tsl2561": "easierbycode/tsl2561_node"
+  }
+}

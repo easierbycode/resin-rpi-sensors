@@ -1,0 +1,14 @@
+# FROM resin/rpi-nodejs
+FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
+
+# setup tsl2561
+RUN echo "i2c-bcm2708" | tee -a /etc/modules
+RUN echo "i2c-dev" | tee -a /etc/modules
+
+COPY package.json ./
+RUN JOBS=MAX npm install --unsafe-perm
+
+# copy current directory into WORKDIR
+COPY . ./
+
+CMD ["npm", "start"]
