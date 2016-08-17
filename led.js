@@ -12,7 +12,7 @@ var HW_LEVEL  = 'hwLevel1';
     blue  : new Gpio(13, {mode: Gpio.OUTPUT}),
     red   : new Gpio(5, {mode: Gpio.OUTPUT}),
     green : new Gpio(6, {mode: Gpio.OUTPUT}),
-    allLedOff : function() {
+    allLedOff : () => {
       [led2.blue, led2.red, led2.green].forEach(( gpio ) => gpio.pwmWrite( ledOff ));
     }
   };
@@ -26,7 +26,7 @@ module.exports = function() {
     
     console.log( "[CONNECTIVITY]\t we're ", connectedSnap.val() === true ? 'connected!' : 'disconnected!' );
     
-    allLedOff();
+    led2.allLedOff();
     
     if ( connectedSnap.val() === true ) {
       led2.green.pwmWrite( ledOn );
