@@ -1,6 +1,7 @@
 var extend          = require( 'util' )._extend;
 var getHumidity     = require( './humidity' );
 var getLux          = require( './lux' );
+var getTemperature  = require( './temperature' );
 var Q               = require( 'q' );
 
 // defaults to 10 minutes (600)
@@ -12,7 +13,8 @@ var readSensors = () => {
 
   Q.all([
     getHumidity(),
-    getLux()
+    getLux(),
+    getTemperature()
   ]).then( ( results ) => {
     results.forEach( ( result ) => extend( reading, result ) );
 
