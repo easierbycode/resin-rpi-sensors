@@ -10,7 +10,11 @@
   "author": "Daniel Johnson <daniel@easierbycode.com>",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "2.0.0",
+    "firebase": "3.3.0",
+    "moment": "2.14.1",
     "node-dht-sensor": "0.0.17",
+    "pigpio": "0.3.4",
     "q": "^1.4.1",
     "tsl2561": "easierbycode/tsl2561_node"
   }
